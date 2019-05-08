@@ -1,8 +1,10 @@
 const express = require('express');
+var cors = require('cors');
 const port = 5001;
 const db = require('./data/db.js');
 const server = express();
 server.use(express.json());
+server.use(cors()); // cors is used to enable communication from other ports/URLs
 
 
 // POST - Creates a user using the information sent inside the request body. ('/api/users')
@@ -84,9 +86,9 @@ server.put('/api/users/:id', (req, res) => {
         updated_at: now
     }
     db.update(id, updatedUser)
-    .then(updatedUser => {
-        if (updatedUser) {
-            res.json(updatedUser);
+    .then(response => {
+        if (response) {
+            res.json(response);
         } else {
             res.status(404).json({ message: "The user with the specified ID does not exist."});
         }
