@@ -70,6 +70,31 @@ server.delete('/api/users/:id', (req, res) => {
 })
 
 // PUT - Updates the user with the specified id using data from the request body. Returns the modified document, NOT the original. ('/api/users/:id')
+server.put('/api/users/:id', (req, res) => {
+    const { id } = req.params;
+    const { name, bio, created_at, updated_at } = req.body;
+    if (!name || !bio) {
+        res.status(400).json({errorMessage: "Please provide name and bio for the user."})
+    }
+    const now = new Date().toISOString();
+    const updatedUser = {
+        name,
+        bio,
+        created_at,
+        updated_at: now
+    }
+    db.update(id, updatedUser)
+    .then(updatedUser => {
+        if (updatedUser) {
+            res.json(updatedUser);
+        } else {
+            res.status(404).json({ message: "The user with the specified ID does not exist."});
+        }
+    })
+    .catch(err => {
+        res.status(500).json({ error: "The user information could not be modified." });
+    });
+})
 
 //listening
 server.listen(port, () => {
