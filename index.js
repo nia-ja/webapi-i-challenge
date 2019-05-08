@@ -11,7 +11,13 @@ server.post('/api/users', (req, res) => {
     if (!name || !bio) {
         res.status(400).json({errorMessage: "Please provide name and bio for the user."})
     }
-    db.insert({name, bio, created_at, updated_at})
+    const now = new Date().toISOString();
+    db.insert({
+        name,
+        bio,
+        created_at: now,
+        updated_at: now
+    })
     .then(response => {
         res.status(201).json(response);
     })
@@ -43,11 +49,25 @@ server.get('/api/users/:id', (req, res) => {
         }
     })
     .catch(err => {
-        res.status(code).json(err);
+        res.status(500).json({ error: "The user information could not be retrieved." });
     });
 })
 
 // DELETE - Removes the user with the specified id and returns the deleted user. ('/api/users/:id')
+server.delete('/api/users/:id', (req, res) => {
+    const { id } = req.params;
+    db.remove(id)
+    .then(removedUser => {
+        if (removedUser) {
+            res.json(removedUser);
+        } else {
+            res.status(404).json({ message: "The user with the specified ID does not exist." });
+        }
+    })
+    .catch(err => {
+        res.status(500).json({ error: "The user could not be removed" });
+    });
+})
 
 // PUT - Updates the user with the specified id using data from the request body. Returns the modified document, NOT the original. ('/api/users/:id')
 
