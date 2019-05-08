@@ -4,7 +4,21 @@ const db = require('./data/db.js');
 const server = express();
 server.use(express.json());
 
+
 // POST - Creates a user using the information sent inside the request body. ('/api/users')
+server.post('/api/users', (req, res) => {
+    const { name, bio, created_at, updated_at } = req.body;
+    if (!name || !bio) {
+        res.status(400).json({errorMessage: "Please provide name and bio for the user."})
+    }
+    db.insert({name, bio, created_at, updated_at})
+    .then(response => {
+        res.status(201).json(response);
+    })
+    .catch(err => {
+        res.status(500).json({ error: "There was an error while saving the user to the database" })
+    })
+})
 
 // GET - Returns an array of all the user objects contained in the database. ('/api/users')
 server.get('/api/users', (req, res) => {
