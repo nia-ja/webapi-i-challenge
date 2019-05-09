@@ -6,7 +6,7 @@ const UserList = props => {
     return (
         <div className="user-list-wrapper">
             {props.users.map(user => {
-                return <User user={user} deleteUser={props.deleteUser} key={user.id} />
+                return <User user={user} onClick={() => props.deleteUser(user.id)} key={user.id} />
             })}
         </div>
     )

@@ -8,7 +8,7 @@ const User = props => {
                 <p>{props.user.bio}</p>
             </div>
             <div className="user-controls">
-                <button className="btn" onClick={() => props.deleteUser(props.user.id)}>✘</button>
+                <button className="btn" onClick={props.onClick}>✘</button>
                 <button className="btn edit">✎</button>
             </div>
         </div>

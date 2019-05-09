@@ -52,6 +52,59 @@ table {
   padding-top: 50px;
   color: rgb(36, 36, 36);
 }
+/* FORM */
+.add-user-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.form-wrapper {
+  width: 100%;
+  background: rgb(202, 219, 190);
+  margin: 0 auto;
+  padding: 20px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  width: 60%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+form input {
+  width: 80%;
+  margin: 0 auto 15px auto;
+  padding: 7px;
+  font-size: 14px;
+  border: none;
+  border-radius: 3px;
+}
+form .btn {
+  width: 20%;
+  align-self: center;
+}
+.form-wrapper .hide-form {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  background: rgb(22, 53, 2);
+  color: white;
+}
+.plus {
+  font-size: 90px;
+  font-weight: 900;
+  color: rgb(22, 53, 2);
+  transition: all .2s ease-in-out;
+}
+.plus:hover {
+  color: rgb(35, 82, 4);
+  cursor: pointer;
+  transform: scale(1.1);
+}
+/* USER LIST */
 .user-list-wrapper {
   width: 60%;
   margin: 0 auto;
@@ -97,6 +150,7 @@ table {
   background: rgb(22, 53, 2);
   color: white;
   border: 1px solid rgb(22, 53, 2);
+  cursor: pointer;
 }
 .btn:focus {
   outline: none;
