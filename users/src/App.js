@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
+import UserList from "./components/UserList";
+
 class App extends Component {
   state = {
     users: []
@@ -32,14 +34,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.users.map(user => {
-          return (
-            <div className="user-wrapper" key={user.id}>
-              <p>{user.name}</p>
-              <button onClick={() => this.deleteUser(user.id)}>✘</button>
-            </div>
-          )
-        })}
+        <UserList users={this.state.users} deleteUser={this.deleteUser} />
       </div>
     );
   }
