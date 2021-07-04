@@ -1,0 +1,166 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} /* <------ reset */
+
+.App {
+  width: 100%;
+  padding-top: 50px;
+  color: rgb(36, 36, 36);
+}
+/* FORM */
+.add-user-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.form-wrapper {
+  width: 100%;
+  background: rgb(202, 219, 190);
+  margin: 0 auto;
+  padding: 20px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  width: 60%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+form input {
+  width: 80%;
+  margin: 0 auto 15px auto;
+  padding: 7px;
+  font-size: 14px;
+  border: none;
+  border-radius: 3px;
+}
+form .btn {
+  width: 20%;
+  align-self: center;
+}
+.form-wrapper .hide-form {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  background: rgb(22, 53, 2);
+  color: white;
+}
+.plus {
+  font-size: 90px;
+  font-weight: 900;
+  color: rgb(22, 53, 2);
+  transition: all .2s ease-in-out;
+}
+.plus:hover {
+  color: rgb(35, 82, 4);
+  cursor: pointer;
+  transform: scale(1.1);
+}
+/* USER LIST */
+.user-list-wrapper {
+  width: 60%;
+  margin: 0 auto;
+}
+.user-wrapper {
+  width: 100%;
+  border: 3px solid rgb(22, 53, 2);
+  border-radius: 25px 0;
+  padding: 20px 2%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  transition: all .2s ease-in-out;
+}
+.user-wrapper:hover {
+  background: rgb(202, 219, 190);
+  border: 3px solid rgb(202, 219, 190);
+  transform: scale(1.1);
+}
+.user-content h1 {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(22, 53, 2);
+  margin-bottom: 20px;
+}
+.user-controls {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.btn {
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  padding: 7px 2px;
+  font-size: 18px;
+  font-weight: bold;
+  background: white;
+  color: lightgray;
+}
+.btn:hover {
+  background: rgb(22, 53, 2);
+  color: white;
+  border: 1px solid rgb(22, 53, 2);
+  cursor: pointer;
+}
+.btn:focus {
+  outline: none;
+  border: 1px solid rgb(22, 53, 2);
+  color: rgb(22, 53, 2);
+  background: white;
+}
+.btn:first-child {
+  margin-bottom: 10px;
+}
+.btn.edit {
+  transform: scaleX(-1);
+}
